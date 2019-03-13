@@ -87,7 +87,7 @@
 <meta property="og:site_name" content="枫&#39;Blog">
 <meta property="og:description" content="前言 今天应老大的要求，安装一下iview-project，作为下一个项目的ui组件库，在安装过程中发现了一些问题。接下来就好好的梳理一下。">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-03-12T09:47:21.412Z">
+<meta property="og:updated_time" content="2019-03-13T02:37:03.387Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="安装iview-project工程">
 <meta name="twitter:description" content="前言 今天应老大的要求，安装一下iview-project，作为下一个项目的ui组件库，在安装过程中发现了一些问题。接下来就好好的梳理一下。">
@@ -387,11 +387,7 @@
 <p>安装依赖完成后，会有一些报错，就是150漏洞，这些漏洞都是iview-project贡献者上传代码导致的，目前这些漏洞有什么问题还不清楚，但是不影响我们的使用。</p>
 <p>接下来打开文件根目录下的 <strong><em>webpack.dev.config.js</em></strong> 文件，找到<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">fs.open(&apos;./src/config/env.js&apos;, &apos;w&apos;, function (err, fd) &#123;</span><br><span class="line">    const buf = &apos;export default &quot;development&quot;;&apos;;</span><br><span class="line">    fs.write(fd, buf, 0, buf.length, 0, function (err, written, buffer)&#123;&#125;);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure></p>
 <p>更改为<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">fs.open(&apos;./src/config/env.js&apos;, &apos;w&apos;, function (err, fd) &#123;</span><br><span class="line">    const buf = &apos;export default &quot;development&quot;;&apos;;</span><br><span class="line">    fs.write(fd, buf, 0, &apos;utf-8&apos;, function(err, written, buffer) &#123;&#125;);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure></p>
-<p>这个时候运行</p>
-<blockquote>
-<p>npm run dev</p>
-</blockquote>
-<p>会报错，因为这个项目工程还没有创建index.html，所以我们需要先创建index.html<br>在命令窗口输入</p>
+<p>这个时候运行会报错，因为这个项目工程还没有创建index.html，所以我们需要先创建index.html<br>在命令窗口输入</p>
 <blockquote>
 <p>npm run init</p>
 </blockquote>
